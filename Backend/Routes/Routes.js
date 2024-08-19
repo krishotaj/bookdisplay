@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const controllers = require('./../Controllers/Controllers');
+const controllers = require('../Controllers/Controllers');
 
 // book routes
-router.get('/book', controllers.getBook);
-router.get('/book/:pageNumber', controllers.getPage);
+router.get('/home', controllers.getBook);
+router.get('/home/:pageNumber', controllers.getPage);
 
 // comment routes
 router.get('/comments/:bookId', controllers.getComments);
