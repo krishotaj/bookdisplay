@@ -1,20 +1,28 @@
 const express = require('express');
+const {
+    getBookPage,
+    getComments,
+    addComment,
+    login,
+    register,
+    getMe
+} = require('../Controllers/Controllers');
+const auth = require('../Middleware/auth');
+
 const router = express.Router();
-const controllers = require('../Controllers/Controllers');
 
-// book routes
-router.get('/home', controllers.getBook);
-router.get('/home/:pageNumber', controllers.getPage);
+// Book content route
+router.get('/book/:pageNumber', getBookPage);
 
-// comment routes
-router.get('/comments/:bookId', controllers.getComments);
-router.post('/comments/:bookId', controllers.addComment);
-router.put('/comments/:commentId', controllers.updateComment);
-router.delete('/comments/:commentId', controllers.deleteComment);
+// Get currentUser info route
+router.get('/api/me', auth, getMe)
 
-// user routes
-router.post('/login', controllers.login);
-router.post('/logout', controllers.logout);
-router.post('/register', controllers.register);
+// Comment routes
+router.get('/comments/', getComments);
+router.post('/comments', auth, addComment); 
+
+// Auth routes
+router.post('/login', login);
+router.post('/register', register);
 
 module.exports = router;

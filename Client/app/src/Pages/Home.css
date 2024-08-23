@@ -1,0 +1,14 @@
+.home {
+    text-align: center;
+    background-image: url("./paper.jpg")
+  }
+  
+  .scroll-button {
+    margin-top: 200px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
